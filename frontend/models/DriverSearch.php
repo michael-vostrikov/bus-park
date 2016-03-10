@@ -33,6 +33,22 @@ class DriverSearch extends Driver
     }
 
     /**
+     * Checks if the filter panel should be showed as open
+     * @return bool Returns true if any search attribute is filled
+     */
+    public function isOpen()
+    {
+        $attributes = $this->safeAttributes();
+        foreach ($attributes as $attribute) {
+            if (!empty($this->$attribute)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Creates data provider instance with search query applied
      *
      * @param array $params
@@ -48,6 +64,10 @@ class DriverSearch extends Driver
         ]);
 
         $this->load($params);
+
+        if (empty($dataProvider->sort->getAttributeOrders())) {
+            $query->orderBy(['id' => SORT_ASC]);
+        }
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to return any records when validation fails

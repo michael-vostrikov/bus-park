@@ -13,23 +13,40 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="driver-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Driver', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <?= Html::a(Yii::t('app', 'Filter'), '#filter', ['data-toggle' => 'collapse']) ?>
+            <?= Html::a(Yii::t('app', 'Reset filter'), ['index'], ['class' => 'pull-right text-muted']) ?>
+        </div>
+        <div id="filter" class="panel-collapse collapse <?= ($searchModel->isOpen() ? 'in' : '') ?>">
+            <div class="panel-body">
+                <?= $this->render('_search', ['model' => $searchModel]) ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 text-right">
+            <p>
+                <?= Html::a('Create Driver', ['create'], ['class' => 'btn btn-success']) ?>
+            </p>
+        </div>
+    </div>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             'first_name',
             'last_name',
             'age',
-            'is_active',
+            [
+                'attribute' => 'is_active',
+                'value' => function ($model) {
+                    return ($model->is_active ? 'Yes' : 'No');
+                }
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

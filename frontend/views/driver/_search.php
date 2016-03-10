@@ -15,19 +15,36 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+    <div class="row">
 
-    <?= $form->field($model, 'first_name') ?>
+        <div class="col-sm-4">
+            <?= $form->field($model, 'id') ?>
+        </div>
 
-    <?= $form->field($model, 'last_name') ?>
+        <div class="col-sm-4">
+            <?= $form->field($model, 'first_name') ?>
+        </div>
 
-    <?= $form->field($model, 'age') ?>
+        <div class="col-sm-4">
+            <?= $form->field($model, 'last_name') ?>
+        </div>
 
-    <?= $form->field($model, 'is_active') ?>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <?= $form->field($model, 'age') ?>
+        </div>
+
+        <div class="col-sm-4">
+            <?= $form->field($model, 'is_active')->dropdownList(['1' => 'Active', '0' => 'Inactive'], ['prompt' => '[select]']) ?>
+        </div>
+
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

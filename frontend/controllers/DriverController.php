@@ -72,6 +72,9 @@ class DriverController extends Controller
     {
         $model = new Driver();
 
+        // active by default
+        $model->is_active = 1;
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
