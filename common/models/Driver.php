@@ -10,6 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $first_name
  * @property string $last_name
+ * @property string $phone
  * @property integer $age
  * @property integer $is_active
  *
@@ -32,9 +33,10 @@ class Driver extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'last_name', 'age'], 'required'],
+            [['first_name', 'last_name', 'phone', 'age'], 'required'],
             [['age', 'is_active'], 'integer'],
-            [['first_name', 'last_name'], 'string', 'max' => 100]
+            [['first_name', 'last_name'], 'string', 'max' => 100],
+            [['phone'], 'string', 'max' => 20]
         ];
     }
 
@@ -47,6 +49,7 @@ class Driver extends \yii\db\ActiveRecord
             'id' => 'ID',
             'first_name' => 'Имя',
             'last_name' => 'Фамилия',
+            'phone' => 'Телефон',
             'age' => 'Возраст',
             'is_active' => 'Активен',
         ];

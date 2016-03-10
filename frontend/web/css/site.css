@@ -116,7 +116,7 @@ a.desc:after {
     height: 22px;
     display: inline-block;
     border-radius: 50%;
-    padding: 4px 2px 2px 1px;
+    padding: 3px 2px 2px 1px;
     cursor: pointer;
     text-align: center;
 }

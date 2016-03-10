@@ -19,7 +19,7 @@ class DriverSearch extends Driver
     {
         return [
             [['id', 'age', 'is_active'], 'integer'],
-            [['first_name', 'last_name'], 'safe'],
+            [['first_name', 'last_name', 'phone'], 'safe'],
         ];
     }
 
@@ -82,7 +82,8 @@ class DriverSearch extends Driver
         ]);
 
         $query->andFilterWhere(['like', 'first_name', $this->first_name])
-            ->andFilterWhere(['like', 'last_name', $this->last_name]);
+            ->andFilterWhere(['like', 'last_name', $this->last_name])
+            ->andFilterWhere(['like', 'phone', $this->phone]);
 
         return $dataProvider;
     }

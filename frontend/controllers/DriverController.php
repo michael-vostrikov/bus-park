@@ -117,6 +117,11 @@ class DriverController extends Controller
         return $this->redirect(['index']);
     }
 
+    /**
+     * Toggles driver state - active / inactive
+     * @param integer $id
+     * @return mixed
+     */
     public function actionToggleIsActive($id)
     {
         $model = $this->findModel($id);

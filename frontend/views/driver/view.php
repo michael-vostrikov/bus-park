@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'first_name',
             'last_name',
+            'phone',
             'age',
             [
                 'attribute' => 'is_active',

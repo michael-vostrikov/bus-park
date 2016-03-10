@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'first_name',
             'last_name',
+            'phone',
             'age',
             [
                 'label' => 'Модели автобусов',
