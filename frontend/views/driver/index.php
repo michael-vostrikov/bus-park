@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
@@ -41,13 +42,22 @@ $this->params['breadcrumbs'][] = $this->title;
             'first_name',
             'last_name',
             'age',
-            [
-                'attribute' => 'is_active',
-                'value' => function ($model) {
-                    return ($model->is_active ? 'Yes' : 'No');
-                }
-            ],
 
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'header' => 'Active',
+                'template' => '{toggleIsActive}',
+                'buttons' => [
+                    'toggleIsActive' => function ($url, $model, $key) {
+                        $options = [
+                            'title' => 'Activate / Deactivate',
+                            'class' => 'toggle-is-active' . ($model->is_active ? ' active' : ''),
+                            'data-url' => Url::to(['driver/toggle-is-active', 'id' => $model->id]),
+                        ];
+                        return Html::a('<span class="glyphicon glyphicon-ok"></span>', null, $options);
+                    },
+                ],
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

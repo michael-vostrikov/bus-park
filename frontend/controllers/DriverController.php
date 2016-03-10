@@ -31,6 +31,7 @@ class DriverController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
+                    'toggle-is-active' => ['post'],
                 ],
             ],
         ];
@@ -114,6 +115,15 @@ class DriverController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionToggleIsActive($id)
+    {
+        $model = $this->findModel($id);
+        $model->is_active = ($model->is_active ? 0 : 1);
+        if (!$model->save()) {
+            throw new \Exception('Cannot save model');
+        }
     }
 
     /**
