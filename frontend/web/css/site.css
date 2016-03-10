@@ -125,3 +125,8 @@ a.desc:after {
     color: #fff;
     background: #4cae4c;
 }
+
+.breadcrumb {
+    border: 1px solid #ccc;
+    padding: 7px 15px;
+}
