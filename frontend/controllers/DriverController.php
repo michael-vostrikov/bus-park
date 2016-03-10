@@ -122,7 +122,7 @@ class DriverController extends Controller
         $model = $this->findModel($id);
         $model->is_active = ($model->is_active ? 0 : 1);
         if (!$model->save()) {
-            throw new \Exception('Cannot save model');
+            throw new \Exception('Cannot toggle driver state');
         }
     }
 

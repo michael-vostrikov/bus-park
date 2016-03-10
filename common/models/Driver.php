@@ -45,10 +45,10 @@ class Driver extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'age' => 'Age',
-            'is_active' => 'Is Active',
+            'first_name' => 'Имя',
+            'last_name' => 'Фамилия',
+            'age' => 'Возраст',
+            'is_active' => 'Активен',
         ];
     }
 

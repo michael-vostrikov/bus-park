@@ -38,13 +38,13 @@ use yii\widgets\ActiveForm;
         </div>
 
         <div class="col-sm-4">
-            <?= $form->field($model, 'is_active')->dropdownList(['1' => 'Active', '0' => 'Inactive'], ['prompt' => '[select]']) ?>
+            <?= $form->field($model, 'is_active')->dropdownList(['1' => 'Активен', '0' => 'Неактивен'], ['prompt' => '[выбрать]']) ?>
         </div>
 
     </div>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton('Поиск', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

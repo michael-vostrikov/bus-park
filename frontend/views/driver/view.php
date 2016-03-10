@@ -9,7 +9,7 @@ use yii\grid\GridView;
 /* @var $model common\models\Driver */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Drivers', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Водители', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="driver-view">
@@ -17,11 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'age',
             [
                 'attribute' => 'is_active',
-                'value' => ($model->is_active ? 'Yes' : 'No'),
+                'value' => ($model->is_active ? 'Да' : 'Нет'),
             ],
         ],
     ]) ?>
@@ -45,11 +45,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <br>
 
     <p>
-        <h3><?= 'Bus models' ?></h3>
+        <h3><?= 'Модели автобусов' ?></h3>
     <p>
 
     <p>
-        <?= Html::a('Add Bus Model', ['driver-bus-model/create', 'driver_id' => $model->id], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить модель автобуса', ['driver-bus-model/create', 'driver_id' => $model->id], ['class' => 'btn btn-success']) ?>
     </p>
 
 

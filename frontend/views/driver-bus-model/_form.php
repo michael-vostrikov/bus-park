@@ -16,10 +16,10 @@ $busModels = \common\models\BusModel::find()->select(['name', 'id'])
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'bus_model_id')->dropdownList($busModels, ['prompt' => '[select]']) ?>
+    <?= $form->field($model, 'bus_model_id')->dropdownList($busModels, ['prompt' => '[выбрать]']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton('Добавить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

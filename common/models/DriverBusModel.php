@@ -40,8 +40,8 @@ class DriverBusModel extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'driver_id' => 'Driver ID',
-            'bus_model_id' => 'Bus Model ID',
+            'driver_id' => 'Водитель',
+            'bus_model_id' => 'Модель автобуса',
         ];
     }
 

@@ -8,7 +8,7 @@ use yii\grid\GridView;
 /* @var $searchModel frontend\models\DriverSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Drivers';
+$this->title = 'Водители';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="driver-index">
@@ -17,8 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <?= Html::a(Yii::t('app', 'Filter'), '#filter', ['data-toggle' => 'collapse']) ?>
-            <?= Html::a(Yii::t('app', 'Reset filter'), ['index'], ['class' => 'pull-right text-muted']) ?>
+            <?= Html::a(Yii::t('app', 'Фильтр'), '#filter', ['data-toggle' => 'collapse']) ?>
+            <?= Html::a(Yii::t('app', 'Сбросить фильтр'), ['index'], ['class' => 'pull-right text-muted']) ?>
         </div>
         <div id="filter" class="panel-collapse collapse <?= ($searchModel->isOpen() ? 'in' : '') ?>">
             <div class="panel-body">
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
         <div class="col-sm-12 text-right">
             <p>
-                <?= Html::a('Create Driver', ['create'], ['class' => 'btn btn-success']) ?>
+                <?= Html::a('Добавить водителя', ['create'], ['class' => 'btn btn-success']) ?>
             </p>
         </div>
     </div>
@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'last_name',
             'age',
             [
-                'label' => 'Bus models',
+                'label' => 'Модели автобусов',
                 'format' => 'html',
                 'value' => function ($model) {
                     return implode('<br>', $model->getBusModels()->select('name')->column());
@@ -52,12 +52,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'header' => 'Active',
+                'header' => 'Активен',
                 'template' => '{toggleIsActive}',
                 'buttons' => [
                     'toggleIsActive' => function ($url, $model, $key) {
                         $options = [
-                            'title' => 'Activate / Deactivate',
+                            'title' => 'Активировать / Деактивировать',
                             'class' => 'toggle-is-active' . ($model->is_active ? ' active' : ''),
                             'data-url' => Url::to(['driver/toggle-is-active', 'id' => $model->id]),
                         ];
