@@ -9,5 +9,5 @@ php init
 php yii migrate
 ```
 
-Логин: admin
-Пароль: 123456
+Логин: admin  
+Пароль: 123456  
