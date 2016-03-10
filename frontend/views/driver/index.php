@@ -42,6 +42,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'first_name',
             'last_name',
             'age',
+            [
+                'label' => 'Bus models',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return implode('<br>', $model->getBusModels()->select('name')->column());
+                }
+            ],
 
             [
                 'class' => 'yii\grid\ActionColumn',
